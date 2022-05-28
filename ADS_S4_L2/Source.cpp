@@ -33,7 +33,7 @@ stats shell_sort(vector<int>& data) {
 		for (int i = step; i < data.size(); i++) {
 			for (int j = i - step; j >= 0 && data[j] > data[j + step]; j -= step) {
 				result.compare_count++;
-				if (data[j] < data[j + step]) {
+				if (data[j] > data[j + step]) {
 					result.copy_count++;
 					int buf = data[j];
 					data[j] = data[j + step];
@@ -69,7 +69,14 @@ stats comb_sort(vector<int>& data) {
 }
 
 int main() {
-
+	vector<int> a = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
+	//bubble_sort(a);
+	//shell_sort(a);
+	comb_sort(a);
+	for (size_t i = 0; i < a.size(); i++)
+	{
+		cout << a[i] << " ";
+	}
 	
 	return 0;
 }
