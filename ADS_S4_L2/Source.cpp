@@ -46,6 +46,30 @@ stats shell_sort(vector<int>& data) {
 }
 stats comb_sort(vector<int>& data) {
 	stats result;
-	
+	double factor = 1.2473309; // фактор уменьшения
+	int step = data.size() - 1; // шаг сортировки
+
+	//Последняя итерация цикла, когда step==1 эквивалентна одному проходу сортировки пузырьком
+	while (step >= 1)
+	{
+		for (int i = 0; i + step < data.size(); i++)
+		{
+			result.compare_count++;
+			if (data[i] > data[i + step])
+			{
+				result.copy_count++;
+				int buf = data[i];
+				data[i] = data[i + step];
+				data[i + step] = buf;
+			}
+		}
+		step /= factor;
+	}
 	return result;
+}
+
+int main() {
+
+	
+	return 0;
 }
