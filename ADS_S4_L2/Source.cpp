@@ -46,10 +46,9 @@ stats shell_sort(vector<int>& data) {
 }
 stats comb_sort(vector<int>& data) {
 	stats result;
-	double factor = 1.2473309; // фактор уменьшения
-	int step = data.size() - 1; // шаг сортировки
+	double factor = 1.2473309;
+	int step = data.size() - 1;
 
-	//Последняя итерация цикла, когда step==1 эквивалентна одному проходу сортировки пузырьком
 	while (step >= 1)
 	{
 		for (int i = 0; i + step < data.size(); i++)
@@ -69,14 +68,17 @@ stats comb_sort(vector<int>& data) {
 }
 
 int main() {
-	vector<int> a = { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
-	//bubble_sort(a);
-	//shell_sort(a);
-	comb_sort(a);
+	vector<int> a = { 2, 3, 1};
+	stats info;
+	//info = bubble_sort(a);
+	//info = shell_sort(a);
+	info = comb_sort(a);
 	for (size_t i = 0; i < a.size(); i++)
 	{
 		cout << a[i] << " ";
 	}
+	cout << "\ncompares: " << info.compare_count << endl;
+	cout << "copies: " << info.copy_count << endl;
 	
 	return 0;
 }
