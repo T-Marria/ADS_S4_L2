@@ -31,7 +31,7 @@ stats shell_sort(vector<int>& data) {
 	stats result;
 	for (int step = data.size() / 2; step > 0; step /= 2) {
 		for (int i = step; i < data.size(); i++) {
-			for (int j = i - step; j >= 0 && data[j] > data[j + step]; j -= step) {
+			for (int j = i - step; j >= 0; j -= step) {
 				result.compare_count++;
 				if (data[j] > data[j + step]) {
 					result.copy_count++;
@@ -80,9 +80,10 @@ void PrintInfo(stats& info) {
 }
 
 int main() {
-	vector<int> bubble_test = { 2, 3, 1};
-	vector<int> shell_test = { 2, 3, 1 };
-	vector<int> comb_test = { 2, 3, 1 };
+	vector<int> bubble_test = { 743, -7, 63, 25, 8, 0, -2, 8, 9, 225, 10, 53, -444, 6, 0};
+	//vector<int> shell_test = { 743, -7, 63, 25, 8, 0, -2, 8, 9, 225, 10, 53, -444, 6, 0 };
+	vector<int> shell_test = { 2, 7, 5, 1, 3, 9, 4, 6, 0, 8 };
+	vector<int> comb_test = { 743, -7, 63, 25, 8, 0, -2, 8, 9, 225, 10, 53, -444, 6, 0 };
 
 	stats bubble_info, shell_info, comb_info;
 
