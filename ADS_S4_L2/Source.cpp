@@ -67,18 +67,42 @@ stats comb_sort(vector<int>& data) {
 	return result;
 }
 
-int main() {
-	vector<int> a = { 2, 3, 1};
-	stats info;
-	//info = bubble_sort(a);
-	//info = shell_sort(a);
-	info = comb_sort(a);
-	for (size_t i = 0; i < a.size(); i++)
-	{
-		cout << a[i] << " ";
-	}
-	cout << "\ncompares: " << info.compare_count << endl;
+void PrintVector(vector<int>& data) {
+	for (auto i = data.begin(); i != data.end(); ++i)
+		cout << *i << " ";
+	cout << endl;
+}
+
+void PrintInfo(stats& info) {
+	cout << "sort info:" << endl;
+	cout << "compares: " << info.compare_count << endl;
 	cout << "copies: " << info.copy_count << endl;
+}
+
+int main() {
+	vector<int> bubble_test = { 2, 3, 1};
+	vector<int> shell_test = { 2, 3, 1 };
+	vector<int> comb_test = { 2, 3, 1 };
+
+	stats bubble_info, shell_info, comb_info;
+
+	cout << "Bubble Sort:" << endl;
+	PrintVector(bubble_test);
+	bubble_info = bubble_sort(bubble_test);
+	PrintVector(bubble_test);
+	PrintInfo(bubble_info);
+
+	cout << "\nShell Sort:" << endl;
+	PrintVector(shell_test);
+	shell_info = shell_sort(shell_test);
+	PrintVector(shell_test);
+	PrintInfo(shell_info);
+
+	cout << "\nComb Sort:" << endl;
+	PrintVector(comb_test);
+	comb_info = comb_sort(comb_test);
+	PrintVector(comb_test);
+	PrintInfo(comb_info);
 	
 	return 0;
 }
